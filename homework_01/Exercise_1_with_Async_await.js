@@ -22,3 +22,4 @@ String.prototype.filterWords = filteredWords;
 let test = "This house is nice";
 let bannedWords = ["house", "nice"];
 console.log(test.filterWords(bannedWords));
+console.log('I will run before end of filterWords function');
