@@ -65,7 +65,7 @@
                         );
                     break;
                 default:
-                    console.log('Done with Async & await')
+                    // console.log('Done with Async & await')
                     async function helper() {
                         try {
                             await mars.bind(this);
