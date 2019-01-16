@@ -31,4 +31,5 @@
     const test = "This house is nice";
     const bannedWords = ["house", "nice"];
     console.log(test.filterWords(bannedWords));
+    console.log('I will run after Observable');
 })();
