@@ -18,6 +18,7 @@ async function filteredWords(arr){
         console.log('Error occured: ',error);
     }
 };
+
 String.prototype.filterWords = filteredWords;
 let test = "This house is nice";
 let bannedWords = ["house", "nice"];
