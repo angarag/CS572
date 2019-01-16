@@ -3,7 +3,9 @@
 
     const even_or_odd = is_even => {
         return function () {
-            process.nextTick(() => {
+            const type = Math.floor(Math.random() * Math.floor(4));
+
+            function mars(){
                 let new_arr = [];
                 const arg = is_even;//odd=1, even=0
                 let result = null;
@@ -14,11 +16,24 @@
                                 new_arr.push(item);
                         })
                     return new_arr;
-                };
+                }
                 result = helper(this);
                 console.log(new_arr);
-            });
+            };
+            switch(type){
+                case 1:
+                setImmediate(mars.bind(this));
+                break;
+                case 2:
+                setTimeout(mars.bind(this),0);
+                break;
+                case 3:
+                queueMicrotask(mars.bind(this));
+                break;
+                default:
+                process.nextTick(mars.bind(this));
 
+            }
         }
     };
     Array.prototype.even = even_or_odd(1);
