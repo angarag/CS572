@@ -1,0 +1,22 @@
+{
+  "name": "cs572",
+  "version": "1.0.0",
+  "description": "CS572 MWA course Homeworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angarag/CS572.git"
+  },
+  "keywords": [
+    "Nodejs"
+  ],
+  "author": "Angarag Batjargal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angarag/CS572/issues"
+  },
+  "homepage": "https://github.com/angarag/CS572#readme"
+}
