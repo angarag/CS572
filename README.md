@@ -1,2 +1,2 @@
 # CS572
-Modern Web Application
+Homework & Project of Modern Web Application course taught in MUM Maharishi University of Management
