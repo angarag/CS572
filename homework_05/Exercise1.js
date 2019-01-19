@@ -4,7 +4,6 @@ const express = require('express');
 const axios = require('axios');
 const cacheControl = require('express-cache-controller')
 const url = require('url');
-const paginate = require('express-paginate');
 const path = require('path')
 const port = process.env.port || 3000;
 const cache_duration = 86400; //1 day
@@ -23,12 +22,13 @@ app.use(cacheControl({
     private: true,
     maxAge: cache_duration,
 }));
-app.use(paginate.middleware(10, 50));
 
 var cache = (duration) => {
     return (req, res, next) => {
-        let key = '__express__' + (req.originalUrl || req.url);// + JSON.stringify(req.headers)['if-none-match']
-        console.log(JSON.stringify(req.headers)['if-none-match']);
+        const t= 'if-none-match';
+        const etag = req.headers[t];
+        let key = '__express__' + (req.originalUrl || req.url)//+etag;
+        console.log('if-none-match:',etag);
         let cachedBody = mcache.get(key)
         if (cachedBody) {
             res.send(cachedBody)
@@ -51,11 +51,21 @@ app.get('/favicon.ico', (req, res) => {
 
 })
 //cache = 10 seconds
-app.get('/users', cache(cache_duration / 24 / 360 / 2), (req, res) => {
+
+let page_number=0;
+app.get('/users/:page', (req, res,next) => {
+    console.log('Page num:',req.query.page);
+    page_number = req.query.page;
+    res.redirect('/users')
+});
+app.get('/users', cache(cache_duration), (req, res) => {
     const obj = {
         message: 'Error occured in parsing',
         course: 'MWA'
     }
+    let base_number=10;
+    const url_to_fetch = 'https://randomuser.me/api/?results='+(base_number+page_number);
+    console.log(url_to_fetch);
     res.set({
         'content-type': 'application/json',
         'warning': 'this is MWA course',
@@ -64,8 +74,8 @@ app.get('/users', cache(cache_duration / 24 / 360 / 2), (req, res) => {
     })
     const mars = async () => {
         try {
-            const result = await axios.get('https://randomuser.me/api/?results=10');
-            console.log(result.data.results);
+            const result = await axios.get(url_to_fetch);
+//            console.log(result.data.results);
             /* in case of rendering html
             const html_data = result.data.results.map(
                 item => `<tr><td>${item.login.username}</td><td>${item.email}</td></tr>`
@@ -81,7 +91,7 @@ app.get('/users', cache(cache_duration / 24 / 360 / 2), (req, res) => {
     };
     setTimeout(() => {
         mars();
-    }, 1000) //setTimeout was used to simulate a slow processing request
+    }, 5000) //setTimeout was used to simulate a slow processing request
 
 
 })
