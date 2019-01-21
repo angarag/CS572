@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
-const client = new MongoClient('mongodb://localhost:27017', { useNewUrlParser: true })
+require('dotenv').config();
+const client = new MongoClient(process.env.DB_CONN, { useNewUrlParser: true })
 const str = require('querystring')
 class DB {
 
@@ -37,11 +38,14 @@ class DB {
     }
     upsert(bson) {
         this.getConnection().save(bson);
-        console.log('data inserted')
+        console.log('data inserted',bson)
     }
     closeConnection() {
         if (client)
             client.close();
+    }
+    clearAll(){
+        this.getConnection().remove();
     }
 
 }
