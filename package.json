@@ -18,5 +18,16 @@
   "bugs": {
     "url": "https://github.com/angarag/CS572/issues"
   },
-  "homepage": "https://github.com/angarag/CS572#readme"
+  "homepage": "https://github.com/angarag/CS572#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express-cache-controller": "^1.1.0",
+    "express-paginate": "^1.0.0",
+    "memory-cache": "^0.2.0",
+    "morgan": "^1.9.1",
+    "rxjs": "^6.3.3"
+  }
 }

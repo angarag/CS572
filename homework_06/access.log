@@ -89,3 +89,8 @@ begin::1 - - [19/Jan/2019:23:20:56 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.
 ::1 - - [20/Jan/2019:02:14:03 +0000] "POST / HTTP/1.1" 200 27 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36"
 ::1 - - [20/Jan/2019:02:14:21 +0000] "POST / HTTP/1.1" 200 42 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36"
 ::1 - - [20/Jan/2019:02:14:22 +0000] "POST / HTTP/1.1" 200 27 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [20/Jan/2019:02:15:08 +0000] "POST / HTTP/1.1" 200 42 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [20/Jan/2019:02:15:09 +0000] "POST / HTTP/1.1" 200 27 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [20/Jan/2019:02:15:14 +0000] "DELETE / HTTP/1.1" 200 42 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [20/Jan/2019:02:15:14 +0000] "DELETE / HTTP/1.1" 200 46 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36"
+::1 - - [20/Jan/2019:02:15:18 +0000] "GET / HTTP/1.1" 200 114 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36"

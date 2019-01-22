@@ -28,22 +28,17 @@
                 });
             });
 
-            let cpu_subscribtion = hello.subscribe(val => {
-                if (val.cpu && val.cpu < (core + 1)) {
-                    console.log(message.cpu_not_enough);
-                    result = false;
-                }
-                //console.log('cpu_check');
-            });
-            cpu_subscribtion.unsubscribe();
-            let ram_subscription = hello.subscribe(val => {
+            let subscription = hello.subscribe(val => {
                 if (val.ram && val.ram < (ram)) {
                     console.log(message.memory_not_enough);
                     result = false;
                 }
+                if (val.cpu && val.cpu < (core + 1)) {
+                    console.log(message.cpu_not_enough);
+                    result = false;
+                }
                 //console.log('ram_check');
             })
-            ram_subscription.unsubscribe();
 
             if (result)
                 console.log(message.ok);

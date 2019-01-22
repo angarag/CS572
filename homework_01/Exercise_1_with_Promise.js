@@ -23,12 +23,15 @@
         promise()
             .then((n) => { console.log('some words are filtered: ', n); })
             .catch((i) => { console.log('no word is filtered: ', i); });
+        console.log('I will run before Promise resolution');
     };
     String.prototype.filterWords = filteredWords;
     const test = "This house is nice";
     const bannedWords = ["house", "nice"];
     console.log(test.filterWords(bannedWords));
+    console.log('Test 2')
     const bannedWords1 = ["house1", "nice1"];
     console.log(test.filterWords(bannedWords1));
+    console.log('Finish')
 
 })()

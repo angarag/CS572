@@ -5,11 +5,6 @@ process.on('message', (msg) => {
     var fileUrl = null;
     var rs = null;
     console.log('Message from parent:', msg);
-    // if (msg.chunk) {
-    //     if (msg.chunk === 'First chunk message')
-    //         msg.chunk = `FINAL MESSAGE`;
-    // }
-    // else {
         if (msg.path) {
             fileUrl = new URL(`file:${msg.path}`);
             rs = fs.createReadStream(fileUrl);//readableStream returned   

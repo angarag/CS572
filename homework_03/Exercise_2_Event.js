@@ -21,4 +21,4 @@ class Gym extends EventEmitter {
 
 var gym = new Gym();
 gym.feedBoom('Athlete is working out');
-//gym.feedBoom();
+gym.feedBoom();
