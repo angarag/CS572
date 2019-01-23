@@ -18,7 +18,7 @@ class DB {
     }
     createConnection() {
         this.helper().then((conn) => { this.conn = conn; })
-            .catch((err) => { console.log('Error occured during the db connection') })
+            .catch((err) => { console.log('Error occured during the db connection',err) })
     }
     constructor() {
         this.conn = null;
@@ -27,7 +27,7 @@ class DB {
     }
     getConnection() {
         if (this.conn == null)
-            createConnection()
+            this.createConnection()
         return this.conn;
     }
     findOne() {
