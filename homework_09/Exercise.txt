@@ -1,0 +1,43 @@
+db.zips.aggregate([{$match:{state:'IA'}}])
+
+db.zips.aggregate([ { $match: {pop:{$gt:1000}} }
+//    ,{$group:{_id:null,count:{$sum:1}}}
+])
+
+
+db.zips.aggregate([{$group:{
+    _id:{state:"$state",city:"$city"},
+    count:{$sum:1}
+}},
+{
+    $match:{count:{$gt:1}}
+},
+{
+    $project:{
+        state:"$_id.state",
+        city:"$_id.city",
+        _id:0
+    }
+},
+{
+    $sort: {state:1, city:1}
+}
+])
+
+db.zips.aggregate([
+    {
+        $group:{
+            _id:{state:"$state",city:"$city"},
+            popcount:{$sum:"$pop"}
+                }
+},{
+    $match:{popcount:{$gt:0}}
+},{
+    $sort:{popcount:-1}
+},{
+    $group:{
+        _id:"$_id",
+        citi:{$first:"$_id.city"}
+    }
+}])
+
