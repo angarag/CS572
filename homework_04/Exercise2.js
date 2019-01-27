@@ -23,7 +23,8 @@ server.on('request', function (req, res) {
         res.end();
     else {
         const path = url_obj.query.url;
-        const childProcess = fork('download_file.js');
+        console.log(url_obj.query)
+        const childProcess = fork('./download_file.js');
         message.path = path;
         console.log('message at the beginning:', message);
         childProcess.send(message);

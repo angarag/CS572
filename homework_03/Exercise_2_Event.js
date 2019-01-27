@@ -4,6 +4,7 @@ class Gym extends EventEmitter {
     constructor() {
         super();
         this.message = 'Hi!';
+        this.feedBoom();
         setInterval(()=>{
             this.emit('boom', 'MUM student');    
         },1000);
@@ -20,5 +21,5 @@ class Gym extends EventEmitter {
 }
 
 var gym = new Gym();
-gym.feedBoom('Athlete is working out');
-gym.feedBoom();
+//gym.feedBoom('Athlete is working out');
+//gym.feedBoom();
