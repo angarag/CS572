@@ -37,6 +37,9 @@ export class CounterComponent implements OnChanges{
     console.log(this.ng_content)
     console.log(`the above one is NG Content, the below one is Component input onChanges:`)
     console.log(changes);//.counter.currentValue)
+    let x = changes.counter.currentValue
+    this.counterValue=x;
+    this.counterChange.emit(x);
   }
   //Option#2
   setValue(val){

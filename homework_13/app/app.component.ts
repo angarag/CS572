@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ViewChild, AfterViewInit, ngAfterContentInit,OnInit } from '@angular/core';
+import {ViewChild, AfterViewInit, ngAfterContentInit } from '@angular/core';
 import { CounterComponent } from './counter/counter.component';
 
 @Component({
@@ -18,7 +18,7 @@ import { CounterComponent } from './counter/counter.component';
   `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, ngAfterContentInit {
+export class AppComponent implements ngAfterContentInit {
   title = 'angularProject';
   parent_counter:number;
   parent_val:number;
