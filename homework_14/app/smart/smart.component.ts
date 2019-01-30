@@ -9,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
   <app-dumb *ngFor="let dumb of dumbs" [param]="dumb">
   </app-dumb>
 </ng-template>
-My invisible children:
+My invisible children (if u click on it, it will be logged):
 <ng-template [ngIf]="objs">
 <app-dumb *ngFor="let item of objs | keyvalue" [obj]="item">
 </app-dumb>
