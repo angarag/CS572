@@ -1,19 +1,34 @@
 import { Component } from '@angular/core';
 
+import { DataService } from './service/data.service';
 
 @Component({
   selector: 'app-root',
   template: `
-<app-smart [dumbs]="arr" [objs]="objs">
-</app-smart>
+  <h1>App Component</h1>
+  <a [routerLink]="['users']">Load Lazy Users Component</a>
+  <router-outlet></router-outlet>
   `,
-  styleUrls: ['./app.component.css']
+  // because LogService is here now both Components will have same instance
+  // we moved LogService here because it's been used in DataService 
+  // we can move it to a higher level in module!
+  // we have DataService here so both Components will have same instance
+  // basically they now share same data
+  // Also both Components will communicate through this service
+  // One Component will emit() an event and the other Component will subscribe to the same Emitter 
+  providers: [DataService]
 })
 export class AppComponent {
-  arr = [3,2,4,5,'mars',7.0];
-  objs = {3:true,2:false,4:true,5:false,'mars':true,7.0:true};
-
-  constructor(){
+  
+  constructor(private dataService: DataService) { 
+     
   }
 
+  ngOnInit() {
+    console.log('getting data'
+    )
+    console.log(this.dataService.getOnlineData());
+    }
+
 }
+
