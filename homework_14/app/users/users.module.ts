@@ -10,9 +10,10 @@ import { UserdetailsComponent } from '../userdetails/userdetails.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', component: UsersLazyComponent },
-      { path: ':uuid', component: UserdetailsComponent}
-   
+      { path: '', component: UsersLazyComponent }
+      ,
+      { path: 'users/:uuid', component: UserdetailsComponent}
+
     ])
 
   ],

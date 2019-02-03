@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-
 import { DataService } from './service/data.service';
 
 @Component({
   selector: 'app-root',
   template: `
   <h1>App Component</h1>
+  <a [routerLink]="['']">Home</a>
   <a [routerLink]="['users']">Load Lazy Users Component</a>
   <router-outlet></router-outlet>
   `,
@@ -16,7 +16,7 @@ import { DataService } from './service/data.service';
   // basically they now share same data
   // Also both Components will communicate through this service
   // One Component will emit() an event and the other Component will subscribe to the same Emitter 
-  providers: [DataService]
+  providers: []
 })
 export class AppComponent {
   
@@ -27,7 +27,14 @@ export class AppComponent {
   ngOnInit() {
     console.log('getting data'
     )
-    console.log(this.dataService.getOnlineData());
+    this.dataService.getOnlineData()
+    .subscribe((data) => {
+      // this.data=data.data.results;
+      console.log(data)
+      localStorage.setItem('users',JSON.stringify(data['results']));
+
+  });
+
     }
 
 }
