@@ -8,7 +8,7 @@ import { DataService } from '../service/data.service';
   <ul>
   <div *ngFor="let user of users">
   <li>
-  <a [routerLink]="['users',user.login.uuid]">
+  <a [routerLink]="['users',user.login.uuid]" (click)="sendUUID(user.login.uuid)">
   {{user.name.first}} {{user.name.last}}
   </a>
   </li>
@@ -21,10 +21,12 @@ import { DataService } from '../service/data.service';
 export class UsersLazyComponent implements OnInit {
   users;
   constructor(private dataService: DataService){}
- 
+  sendUUID(id){
+    this.dataService.emitValue(id);
+  }
   ngOnInit() {
     this.users= this.dataService.getCachedData();
-    console.log(this.users)
+   // console.log(this.users)
  
 }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {CanActivate, ActivatedRoute } from '@angular/router';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -21,18 +21,19 @@ import { DataService } from '../service/data.service';
 })
 export class UserdetailsComponent implements OnInit {
   @Input() user:any;
-  user_id;
+  user_id=null;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
-    this.route.params.subscribe((item)=>{
-      let uuid= item.uuid;
-      let arr=this.dataService.getCachedData()
-      arr.forEach((item)=>{
-        if(item.login.uuid===uuid)
-        this.user=item;
-      })
+    this.user=this.dataService.getUserDetail();
+    // this.route.params.subscribe((item)=>{
+    //   let uuid= item.uuid;
+    //   let arr=this.dataService.getCachedData()
+    //   arr.forEach((item)=>{
+    //     if(item.login.uuid===uuid)
+    //     this.user=item;
+    //   })
  
-    }) 
+    // }) 
   }
 
   ngOnInit() {

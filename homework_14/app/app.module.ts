@@ -5,14 +5,19 @@ import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http'
 
 import { DataService } from './service/data.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
     declarations: [
-      AppComponent ],
+      AppComponent,
+      NotFoundComponent,
+      
+     ],
     imports: [
       BrowserModule,HttpClientModule,
       RouterModule.forRoot([
-        { path: 'users', loadChildren: './users/users.module#UsersLazyModule'}
+        { path: 'users', loadChildren: './users/users.module#UsersLazyModule'},
+        { path: 'error', component: NotFoundComponent}
         ])
    
     ],
