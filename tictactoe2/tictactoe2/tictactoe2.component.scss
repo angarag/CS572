@@ -1,0 +1,20 @@
+$border_color: black;
+html {
+  font-size: 133%;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 3rem 3rem 3rem;
+  grid-template-rows: 3rem 3rem 3rem;
+  &-item {
+    border-radius: 2px;
+    background-color: yellow;
+    border: 1px solid rgba(white, 0.8);
+  }
+}
+.container {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}

@@ -1,0 +1,17 @@
+<div class="container">
+  <p>Current player: {{ this.current_player }}</p>
+  <div *ngIf="isOver() == true">
+    <button (click)="reset()">
+      Reset
+    </button>
+  </div>
+  <div class="grid">
+    <app-cell2
+      *ngFor="let cell of cells; let i = index"
+      [cid]="i"
+      class="grid-item"
+    >
+      <span>{{ this.cells[i] }}</span>
+    </app-cell2>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+button {
+  height: 100%;
+  width: 100%;
+}
+.clicked {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.77;
+}
