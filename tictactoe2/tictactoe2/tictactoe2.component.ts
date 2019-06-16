@@ -25,8 +25,10 @@ export class Tictactoe2Component implements OnInit {
     this.current_player = "X";
     this.svs.emit.subscribe(id => {
       this.cells[id] = this.current_player;
-      if (!this.hasWinner()) this.changePlayer();
-      else {
+      if (!this.hasWinner()) {
+        if (!this.cells.includes(undefined)) this.current_player = "Noone wins";
+        else this.changePlayer();
+      } else {
         this.current_player = this.current_player + " wins";
         this.svs.done();
       }
@@ -75,7 +77,7 @@ export class Tictactoe2Component implements OnInit {
 
   reset() {
     this.cells = new Array(9);
-    this.svs.reset();
+    //this.svs.reset();
     this.current_player = this.current_player.indexOf("X") != -1 ? "O" : "X";
   }
   isOver() {

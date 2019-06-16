@@ -18,6 +18,7 @@ export class Cell2Component implements OnInit {
   private is_clicked: boolean;
   constructor(private svs: Tictactoe2Service) {}
   ngOnInit() {
+    console.log("OnInit: Child ", this.cid);
     this.is_clicked = false;
     this.svs.parent.subscribe(msg => {
       switch (msg) {
