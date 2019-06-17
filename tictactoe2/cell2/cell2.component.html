@@ -1,3 +1,4 @@
-<button class="" (click)="emit()" appClicked>
+<button #btn (click)="emit()" [disabled]="hasContent()" appClicked>
   <ng-content></ng-content>
+  <!-- {{ this.current_player }} -->
 </button>

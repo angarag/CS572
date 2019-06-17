@@ -1,9 +1,14 @@
 button {
   height: 100%;
   width: 100%;
+  &:disabled {
+  }
 }
 .clicked {
   pointer-events: none;
   cursor: default;
   opacity: 0.77;
+}
+div {
+  display: inline;
 }

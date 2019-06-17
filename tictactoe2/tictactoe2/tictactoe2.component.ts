@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Cell2Component } from "../cell2/cell2.component";
 import { Tictactoe2Service } from "./../tictactoe2.service";
+import { enableProdMode } from "@angular/core";
+
+enableProdMode();
 @Component({
   selector: "app-tictactoe2",
   templateUrl: "./tictactoe2.component.html",
@@ -23,8 +26,9 @@ export class Tictactoe2Component implements OnInit {
   ];
   ngOnInit() {
     this.current_player = "X";
-    this.svs.emit.subscribe(id => {
-      this.cells[id] = this.current_player;
+    this.svs.emit.subscribe(cid => {
+      console.log("OnInit: Parent received emit", cid);
+      this.cells[cid] = this.current_player;
       if (!this.hasWinner()) {
         if (!this.cells.includes(undefined)) this.current_player = "Noone wins";
         else this.changePlayer();
@@ -70,20 +74,21 @@ export class Tictactoe2Component implements OnInit {
           return true;
         }
       }
-      console.log(arr);
+      console.log("Winder detection: Printing array: ", arr);
     }
     return result;
   }
 
   reset() {
     this.cells = new Array(9);
-    //this.svs.reset();
+    this.svs.reset();
     this.current_player = this.current_player.indexOf("X") != -1 ? "O" : "X";
   }
   isOver() {
+    return true;
     if (this.current_player.indexOf("wins") != -1) return true;
-    console.log(this.cells);
-    if (this.cells.filter(i => i == null).length == 0) return true;
+    console.log("IsOver func: printing cells:", this.cells);
+    if (!this.cells.includes(undefined)) return true;
     return false;
   }
 }
